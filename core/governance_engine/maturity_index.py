@@ -1,5 +1,5 @@
 from core.governance_engine.scoring_engine import GovernanceScoringEngine
-from core.governance_engine.maturity_index import GovernanceMaturityIndex
+
 
 # Initialize engines
 scoring_engine = GovernanceScoringEngine()
