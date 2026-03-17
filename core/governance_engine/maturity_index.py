@@ -1,32 +1,23 @@
-class GovernanceMaturityIndex:
+from core.governance_engine.scoring_engine import GovernanceScoringEngine
+from core.governance_engine.maturity_index import GovernanceMaturityIndex
 
-    LEVELS = {
-        1: "Reactive",
-        2: "Basic",
-        3: "Structured",
-        4: "Integrated",
-        5: "Optimized"
-    }
+# Initialize engines
+scoring_engine = GovernanceScoringEngine()
+maturity_engine = GovernanceMaturityIndex()
 
-    def __init__(self):
-        self.score = 0
+# Sample input
+sample_input = {
+    "policies": [{"score": 60}, {"score": 80}],
+    "compliance": [{"score": 70}, {"score": 75}],
+    "ethics": [{"score": 65}, {"score": 85}],
+    "decisions": [{"score": 50}, {"score": 90}]
+}
 
-    def calculate_level(self, score):
-        """
-        Convert governance score into maturity level
-        """
+# Step 1: Calculate scores
+scores = scoring_engine.calculate_scores(sample_input)
 
-        if score < 20:
-            return 1, self.LEVELS[1]
+# Step 2: Convert to maturity
+level, label = maturity_engine.calculate_level(scores["final_score"])
 
-        elif score < 40:
-            return 2, self.LEVELS[2]
-
-        elif score < 60:
-            return 3, self.LEVELS[3]
-
-        elif score < 80:
-            return 4, self.LEVELS[4]
-
-        else:
-            return 5, self.LEVELS[5]
+print("Scores:", scores)
+print("Maturity Level:", level, "-", label)
