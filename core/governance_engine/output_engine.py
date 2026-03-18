@@ -10,6 +10,7 @@ class GovernanceOutputEngine:
             "score_breakdown": scores,
             "risk_flags": self._identify_risks(scores),
             "recommendations": self._generate_recommendations(level)
+            "intelligence": insights
         }
 
         return output
