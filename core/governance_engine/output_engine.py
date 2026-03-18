@@ -1,22 +1,23 @@
 class GovernanceOutputEngine:
 
-    def generate_output(self, scores, level, label, insights):
+    def generate_output(self, scores, level, label, insights, advisory):
         """
         Generate structured governance report output
         """
 
         output = {
-            "executive_summary": self._build_summary(level, label),
-            "score_breakdown": scores,
-            "risk_flags": self._identify_risks(scores),
-            "recommendations": self._generate_recommendations(level)
-            "intelligence": insights
-        }
-
+    "executive_summary": self._build_summary(level, label),
+    "score_breakdown": scores,
+    "risk_flags": self._identify_risks(scores),
+    "recommendations": self._generate_recommendations(level),
+    "intelligence": insights,
+    "advisory": advisory
+}
+     
         return output
 
 
-    def _build_summary(self, level, label):
+   def _build_summary(self, level, label):
         return f"Organization is at Level {level} ({label}) governance maturity."
 
 
