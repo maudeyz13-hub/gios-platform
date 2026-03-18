@@ -1,6 +1,6 @@
 class GovernanceOutputEngine:
 
-    def generate_output(self, scores, level, label):
+    def generate_output(self, scores, level, label, insights):
         """
         Generate structured governance report output
         """
