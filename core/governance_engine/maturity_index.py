@@ -1,7 +1,9 @@
+from core.intelligence.benchmarking_engine import GovernanceBenchmarkingEngine
 from core.intelligence.governance_intelligence import GovernanceIntelligenceEngine
 from core.governance_engine.output_engine import GovernanceOutputEngine
 from core.governance_engine.scoring_engine import GovernanceScoringEngine
 from core.governance_engine.maturity_index import GovernanceMaturityIndex
+
 
 # Initialize engines
 scoring_engine = GovernanceScoringEngine()
@@ -16,6 +18,15 @@ sample_input = {
     "compliance": [{"score": 70}, {"score": 75}],
     "ethics": [{"score": 65}, {"score": 85}],
     "decisions": [{"score": 50}, {"score": 90}]
+# Step 2.5: Benchmarking
+peer_data = [
+    {"final_score": 65},
+    {"final_score": 70},
+    {"final_score": 75},
+    {"final_score": 80}
+]
+
+benchmark = benchmark_engine.benchmark(scores, peer_data)
 }
 
 # Step 1: Calculate scores
@@ -31,8 +42,14 @@ level, label = maturity_engine.calculate_level(scores["final_score"])
 advisory = advisory_engine.generate_advisory(scores, level, label, insights)
 
 # Step 5: Generate output
-report = output_engine.generate_output(scores, level, label, insights, advisory)
-
+report = output_engine.generate_output(
+    scores,
+    level,
+    label,
+    insights,
+    advisory,
+    benchmark
+)
 print("Scores:", scores)
 print("INTELLIGENCE INSIGHTS:")
 print(insights)
