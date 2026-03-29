@@ -6,6 +6,14 @@ class GovernanceOutputEngine:
         """
 
         output = {
+    output = {
+    "executive_summary": ...,
+    "scores": scores,
+    "maturity_level": label,
+    "benchmarking": benchmark,   # ✅ ADD THIS
+    "insights": insights,
+    "advisory": advisory
+}     
     "executive_summary": self._build_summary(level, label),
     "score_breakdown": scores,
     "risk_flags": self._identify_risks(scores),
