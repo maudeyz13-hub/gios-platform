@@ -35,3 +35,11 @@ def _determine_position(self, percentile):
 
 def _generate_narrative(self, percentile):
     return f"Your organization outperforms {percentile}% of comparable organizations."
+
+peer_data = [
+    {"name": "Peer A", "final_score": 55},
+    {"name": "Peer B", "final_score": 68},
+    {"name": "Peer C", "final_score": 72},
+    {"name": "Peer D", "final_score": 80},
+    {"name": "Peer E", "final_score": 90}
+]
