@@ -50,6 +50,8 @@ report = output_engine.generate_output(
     advisory,
     benchmark
 )
+print("BENCHMARKING:")
+print(benchmark)
 print("Scores:", scores)
 print("INTELLIGENCE INSIGHTS:")
 print(insights)
